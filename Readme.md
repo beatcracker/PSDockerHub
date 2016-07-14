@@ -13,7 +13,7 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 
 # Functions
 ### Find-DockerImage
-Search for docker images on Docker Hub via Docker Hub API. You can filter search by Name/Description, Stars, Downloads, Official images and Automated builds.
+Search for docker images on Docker Hub via Docker Hub API. You can filter search by `Name/Description`, `Stars`, `Downloads`, `Official` images and `Automated` builds.
 
 ### Example
 
