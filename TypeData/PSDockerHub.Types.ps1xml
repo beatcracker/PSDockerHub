@@ -1,0 +1,23 @@
+<Types>
+  <Type>
+    <Name>Find-DockerImage</Name>
+    <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>Name</Name>
+              <Name>Description</Name>
+              <Name>Stars</Name>
+              <Name>Downloads</Name>
+              <Name>Official</Name>
+              <Name>Automated</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
+    </Members>
+  </Type>
+</Types>

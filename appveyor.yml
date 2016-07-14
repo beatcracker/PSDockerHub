@@ -1,0 +1,21 @@
+# See http://www.appveyor.com/docs/appveyor-yml for many more options
+
+os: WMF 5
+
+# Skip on updates to the readme.
+# We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
+skip_commits:
+  message: /updated readme.*/
+
+install:
+  - ps: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force -ErrorAction Stop
+  - ps: Install-Module -Name Pester -Force
+  - ps: Install-Module -Name PSScriptAnalyzer -Force
+
+build: false
+
+test_script:
+# Test with native PS version
+  - ps: . .\Tests\AppVeyor.Pester.ps1
+# Finalize pass - collect and upload results
+  - ps: . .\Tests\AppVeyor.Pester.ps1 -Finalize
