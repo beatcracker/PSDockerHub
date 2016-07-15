@@ -62,6 +62,7 @@ Task Build -Depends Test {
     # Load the module, read the exported functions, update the psd1 FunctionsToExport
     Set-ModuleFunctions
 
+    # Hack to sync module version w/ AppVeyor
     (
         Get-Content -Path $env:BHPSModuleManifest -Raw
     ) -replace '(^\s*ModuleVersion\s*=\s*)(.*)', "`$1'$env:APPVEYOR_BUILD_VERSION'" |
