@@ -65,7 +65,7 @@ Task Build -Depends Test {
     # Hack to sync module version w/ AppVeyor
     (
         Get-Content -Path $env:BHPSModuleManifest -Raw
-    ) -replace '(^\s*ModuleVersion\s*=\s*)(.*)', "`$1'$env:APPVEYOR_BUILD_VERSION'" |
+    ) -replace '(^\s*ModuleVersion\s*=\s*)(.*)', "`$1'$env:APPVEYOR_BUILD_NUMBER'" |
         Out-File -FilePath $env:BHPSModuleManifest -Encoding utf8 -Force
 
     # Bump the module version
