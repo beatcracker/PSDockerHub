@@ -17,6 +17,7 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 # One time setup
     # Download the repository
     # Unblock the zip
+    # Extract the PSDockerHub folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
 
     #Simple alternative, if you have PowerShell 5, or the PowerShellGet module:
         Install-Module PSDockerHub
