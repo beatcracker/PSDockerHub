@@ -62,6 +62,11 @@ Task Build -Depends Test {
     # Load the module, read the exported functions, update the psd1 FunctionsToExport
     Set-ModuleFunctions
 
+    (
+        Get-Content -Path $env:BHPSModuleManifest -Raw
+    ) -replace '(^\s*ModuleVersion\s*=\s*)(.*)', "`$1'$env:APPVEYOR_BUILD_VERSION'" |
+        Out-File -FilePath $env:BHPSModuleManifest -Encoding utf8 -Force
+
     # Bump the module version
     Update-Metadata -Path $env:BHPSModuleManifest
 }
