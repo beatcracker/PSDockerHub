@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/ga9uuklbvdexw8re?svg=true)](https://ci.appveyor.com/project/beatcracker/psdockerhub)
 
+![PSDockerHub](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png)
 
 # `PSDockerHub` PowerShell module
 
@@ -9,7 +10,7 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 # Requirements
 
 * PowerShell 3.0 or higher
-
+* 
 
 # Instructions
 
