@@ -12,7 +12,7 @@
 RootModule = 'PSDockerHub.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.3'
+ModuleVersion = '1.0.4'
 
 # ID used to uniquely identify this module
 GUID = '4f082512-cfb9-4a4b-a420-ae6c6bf40721'
