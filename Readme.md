@@ -11,6 +11,28 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 * PowerShell 3.0 or higher
 
 
+# Instructions
+
+```powershell
+# One time setup
+    # Download the repository
+    # Unblock the zip
+
+    #Simple alternative, if you have PowerShell 5, or the PowerShellGet module:
+        Install-Module PSDockerHub
+
+# Import the module.
+    Import-Module PSDockerHub    #Alternatively, Import-Module \\Path\To\PSDockerHub
+
+# Get commands in the module
+    Get-Command -Module PSDockerHub
+
+# Get help
+    Get-Help Find-DockerImage -Full
+    Get-Help about_PSDockerHub
+```
+
+
 # Functions
 ### Find-DockerImage
 Search for docker images on Docker Hub via Docker Hub API. You can filter search by `Name/Description`, `Stars`, `Downloads`, `Official` images and `Automated` builds.
