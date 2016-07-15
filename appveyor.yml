@@ -2,10 +2,15 @@
 
 os: WMF 5
 
+#Publish to PowerShell Gallery with this key
+environment:
+  NuGetApiKey:
+    secure: NbIQ9vEo/6ZsKp4lA2FcYQYQ6BeNAkAtYbDLxQ8QJi2hIbaRVDf3DOrw5M9IMcyQ
+
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
-  message: /updated readme.*/
+  message: /^(?=.*update)(?=.*readme).*$/
 
 install:
   - ps: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force -ErrorAction Stop
@@ -14,8 +19,6 @@ install:
 
 build: false
 
+#Kick off the CI/CD pipeline
 test_script:
-# Test with native PS version
-  - ps: . .\Tests\AppVeyor.Pester.ps1
-# Finalize pass - collect and upload results
-  - ps: . .\Tests\AppVeyor.Pester.ps1 -Finalize
+  - ps: . .\Build.ps1

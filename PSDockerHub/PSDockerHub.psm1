@@ -133,3 +133,5 @@ function Find-DockerImage
             } 
     }
 }
+
+Export-ModuleMember -Function 'Find-DockerImage'
