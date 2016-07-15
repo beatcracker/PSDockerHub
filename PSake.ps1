@@ -63,7 +63,7 @@ Task Build -Depends Test {
     Set-ModuleFunctions
 
     # Set the module version
-    Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $env:APPVEYOR_BUILD_NUMBER
+    Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $env:APPVEYOR_BUILD_VERSION
 }
 
 Task Deploy -Depends Build {

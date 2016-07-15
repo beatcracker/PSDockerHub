@@ -19,6 +19,8 @@ install:
 
 build: false
 
+version: '1.0.{build}'
+
 #Kick off the CI/CD pipeline
 test_script:
   - ps: . .\Build.ps1
