@@ -114,7 +114,7 @@ function Find-DockerImage
                 $ret = $Response | ConvertFrom-Json
                 $ResultsCount += $ret.results.Count
 
-                $Output = if($ResultsCount -gt $MaxResults) {
+                $Output = if ($ResultsCount -gt $MaxResults) {
                     $ret.results | Select-Object -SkipLast ($ResultsCount - $MaxResults)
                     $Request = $null
                 } else {
