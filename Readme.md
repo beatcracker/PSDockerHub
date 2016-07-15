@@ -10,7 +10,7 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 # Requirements
 
 * PowerShell 3.0 or higher
-* 
+
 
 # Instructions
 
