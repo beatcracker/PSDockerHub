@@ -156,21 +156,20 @@ Get Docker image build details. Build details are available only for some [autom
 ```
 ```no-highlight
 Name     : jwilder/nginx-proxy
-Type     : git
 Provider : github
+Type     : git
 Repo     : git://github.com/jwilder/nginx-proxy.git
 Url      : https://github.com/jwilder/nginx-proxy
 
-
-Tags     :                                                                                                                                                                                                                                       
-----------                                                                                                                                                                                                                                       
-Name   Source Type   Dockerfile Id                                                                                                                                                                                                               
-----   ------ ----   ---------- --                                                                                                                                                                                                               
-0.3.0  0.3.0  Tag    /          284672                                                                                                                                                                                                           
-0.4.0  0.4.0  Branch /          317837                                                                                                                                                                                                           
-0.2.0  0.2.0  Tag    /          143192                                                                                                                                                                                                           
-0.1.0  0.1.0  Tag    /          119443                                                                                                                                                                                                           
-latest master Branch /          13991     
+Tags     :
+----------
+Name   Source Type   Dockerfile Id
+----   ------ ----   ---------- --
+0.3.0  0.3.0  Tag    /          284672
+0.4.0  0.4.0  Branch /          317837
+0.2.0  0.2.0  Tag    /          143192
+0.1.0  0.1.0  Tag    /          119443
+latest master Branch /          13991
 ```
 
 ## Get-DockerImageBuildHistory
