@@ -10,7 +10,7 @@ Describe "$FunctionName" {
         $ModuleName = $ENV:BHProjectName
 
         $ScriptWarnings = @(
-            Get-ChildItem -LiteralPath "$ProjectRoot\$ModuleName\$ModuleName.psm1" | Invoke-ScriptAnalyzer
+            Invoke-ScriptAnalyzer -Path "$ProjectRoot\$ModuleName" -Recurse -ExcludeRule 'PSUseToExportFieldsInManifest'
         )
 
         if ($ScriptWarnings) {
