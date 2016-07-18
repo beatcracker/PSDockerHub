@@ -4,7 +4,22 @@
 
 # `PSDockerHub`
 
-PSDockerHub is a PowerShell module written to access the official [Docker Hub/Registry](https://hub.docker.com).
+PSDockerHub is a PowerShell module written to access the official [Docker Hub/Registry](https://hub.docker.com). Its main goal is to to make sure that you have never had to use the public part of Docker Hub site in the browser.
+
+Most of the APIs used were sniffed using the Chrome DevTools, because there is [significant fragmentation](https://github.com/ngageoint/seed/blob/master/detail.adoc#discovery) of APIs between the various Docker offerings.
+
+You can find API documentation here:
+
+* [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/)
+
+Search API is not documented and, the best I could find is this:
+
+* [Public Docker v2 API Endpoints](http://stackoverflow.com/questions/35444178/public-docker-v2-api-endpoints)
+* [docker/hub-feedback: Search uses OR instead of AND to combine terms](https://github.com/docker/hub-feedback/issues/451)
+
+Please note, that at the moment I have no plans to introduce  support of authorization and private repositories.
+
+Suggestions, pull requests, and other contributions would be more than welcome!
 
 # Requirements
 
