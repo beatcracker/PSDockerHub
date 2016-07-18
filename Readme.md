@@ -36,12 +36,12 @@ PSDockerHub is a PowerShell module written to access the official [Docker Hub/Re
 
 # Functions
 
-- [Find-DockerImage](#Find-DockerImage)
-- [Get-DockerImageDetail](#Get-DockerImageDetail)
-- [Get-DockerImageTag](#Get-DockerImageTag)
-- [Get-DockerImageBuildDetail](#Get-DockerImageBuildDetail)
-- [Get-DockerImageBuildHistory](#Get-DockerImageBuildHistory)
-- [Get-DockerImageDockerfile](#Get-DockerImageDockerfile)
+- [Find-DockerImage](#find-dockerimage)
+- [Get-DockerImageDetail](#get-dockerimagedetail)
+- [Get-DockerImageTag](#get-dockerimagetag)
+- [Get-DockerImageBuildDetail](#get-dockerimagebuilddetail)
+- [Get-DockerImageBuildHistory](#get-dockerimagebuildhistory)
+- [Get-DockerImageDockerfile](#get-dockerimagedockerfile)
 
 ## Find-DockerImage
 Search for docker images on Docker Hub via Docker Hub API. You can filter search by `Name/Description`, `Stars`, `Downloads`, `Official` images and `Automated` builds.
