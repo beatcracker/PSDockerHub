@@ -128,7 +128,7 @@ latest 2 MB 23.06.2016 22:56:28 170608
 
 ## Get-DockerImageBuildDetail
 
-Get Docker image build details. Build history is available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
+Get Docker image build details. Build details are available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Example
 
