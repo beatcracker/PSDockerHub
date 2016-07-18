@@ -189,7 +189,7 @@ Updated   : 13.06.2016 6:47:43
 ```
 
 ## Get-DockerImageDockerfile
-Get Docker image [Dockerfile](https://docs.docker.com/engine/reference/builder/). Build history is available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
+Get Docker image [Dockerfile](https://docs.docker.com/engine/reference/builder/). Dockerfiles are available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Example
 
