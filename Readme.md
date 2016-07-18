@@ -101,20 +101,19 @@ Downloads       : 216653529
 Official        : False
 Automated       : False
 FullDescription : # Whale Awkward
-                  [![Docker Pulls](https://img.shields.io/docker/pulls/zzrot/whale-awkward.svg)](http
-                  s://hub.docker.com/r/zzrot/whale-awkward/)
+                  [![Docker Pulls](https://img.shields.io/docker/pulls/zzrot/whale-awkward.svg)](https://hub.d
+                  ocker.com/r/zzrot/whale-awkward/)
                   
                   
-                  Welcome to Whale Awkward! This is a project created by the team at [ZZROT](https://
-                  zzrot.com). We decided it would be fun to build a simple image with a message, and 
-                  then see how high we could get it on [Docker-Hub](https://hub.docker.com/).
+                  Welcome to Whale Awkward! This is a project created by the team at [ZZROT](https://zzrot.com
+                  ). We decided it would be fun to build a simple image with a message, and then see how high 
+                  we could get it on [Docker-Hub](https://hub.docker.com/).
                   
-                  We are currently [ranked 8th](https://hub.docker.com/search/?isAutomated=0&isOffici
-                  al=0&page=1&pullCount=1&q=%22%22&starCount=0) amongst all time pulls! [Check it out
-                  ](https://hub.docker.com/r/zzrot/whale-awkward/) for yourself.
+                  We are currently [ranked 8th](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page
+                  =1&pullCount=1&q=%22%22&starCount=0) amongst all time pulls! [Check it out](https://hub.dock
+                  er.com/r/zzrot/whale-awkward/) for yourself.
                   
-                  Whale Awkward can be found on [Github](https://github.com/ZZROTDesign/whale-awkward
-                  )
+                  Whale Awkward can be found on [Github](https://github.com/ZZROTDesign/whale-awkward)
                   
                   Whale Awkward was developed by:
                   - [Sean Kilgarriff](https://seankilgarriff.com)
