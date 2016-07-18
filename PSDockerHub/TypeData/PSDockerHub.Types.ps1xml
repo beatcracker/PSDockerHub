@@ -20,4 +20,44 @@
       </MemberSet>
     </Members>
   </Type>
+  <Type>
+    <Name>Get-DockerImageTag</Name>
+    <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>Name</Name>
+              <Name>Size</Name>
+              <Name>Updated</Name>
+              <Name>Id</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
+    </Members>
+  </Type>
+  <Type>
+    <Name>Get-DockerImageBuildDetail</Name>
+    <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>Name</Name>
+              <Name>Provider</Name>
+              <Name>Type</Name>
+              <Name>Url</Name>
+              <Name>Repo</Name>
+              <Name>Tags</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
+    </Members>
+  </Type>
 </Types>
