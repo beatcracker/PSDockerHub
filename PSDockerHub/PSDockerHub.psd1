@@ -27,7 +27,7 @@ CompanyName = 'NA'
 Copyright = '(c) 2016 beatcracker. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'PSDockerHub is a PowerShell module written to access the official Docker Hub/Registry'
+Description = 'PSDockerHub is a PowerShell module written to access the official Docker Hub/Registry. Its main goal is to to make sure that you have never had to use the public part of Docker Hub site in the browser.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '3.0'
