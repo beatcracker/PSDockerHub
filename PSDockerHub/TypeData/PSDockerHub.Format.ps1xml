@@ -12,14 +12,14 @@
                 <PropertyName>Name</PropertyName>
               </ExpressionBinding>
               <NewLine />
-              <Text>Type     : </Text>
-              <ExpressionBinding>
-                <PropertyName>Type</PropertyName>
-              </ExpressionBinding>
-              <NewLine />
               <Text>Provider : </Text>
               <ExpressionBinding>
                 <PropertyName>Provider</PropertyName>
+              </ExpressionBinding>
+              <NewLine />
+              <Text>Type     : </Text>
+              <ExpressionBinding>
+                <PropertyName>Type</PropertyName>
               </ExpressionBinding>
               <NewLine />
               <Text>Repo     : </Text>
@@ -31,7 +31,6 @@
               <ExpressionBinding>
                 <PropertyName>Url</PropertyName>
               </ExpressionBinding>
-              <NewLine />
             </CustomItem>
           </CustomEntry>
         </CustomEntries>
