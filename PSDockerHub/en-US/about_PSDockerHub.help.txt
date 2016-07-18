@@ -15,7 +15,7 @@ LONG DESCRIPTION
 
     * https://docs.docker.com/registry/spec/api/
 
-    Search is not documented and, the best I could find is this:
+    Search is not documented and the best I could find is this:
 
     * http://stackoverflow.com/questions/35444178/public-docker-v2-api-endpoints
     * https://github.com/docker/hub-feedback/issues/451

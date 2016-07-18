@@ -19,7 +19,7 @@ Search API is not documented and, the best I could find is this:
 
 Please note, that at the moment I have no plans to introduce  support of authorization and private repositories.
 
-Suggestions, pull requests, and other contributions would be more than welcome!
+Suggestions, pull requests and other contributions would be more than welcome!
 
 # Requirements
 
