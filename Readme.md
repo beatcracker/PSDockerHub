@@ -28,17 +28,29 @@ Suggestions, pull requests and other contributions would be more than welcome!
 
 # Instructions
 
-```powershell
-# One time setup
-    # Download the repository
-    # Unblock the zip
-    # Extract the PSDockerHub folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+## Installation
 
-    #Simple alternative, if you have PowerShell 5, or the PowerShellGet module:
-        Install-Module PSDockerHub
+### From [PowerShell Gallery](https://www.powershellgallery.com/)
+If you have PowerShell 5, or the PowerShellGet module ([MSI Installer for PowerShell 3 and 4](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409)):
 
-# Import the module.
-    Import-Module PSDockerHub    #Alternatively, Import-Module \\Path\To\PSDockerHub
+```posh
+Install-Module PSDockerHub
+```
+
+### From GitHub repo
+
+1. Download the repository
+2. Unblock the zip
+3. Extract the `PSDockerHub` folder to a module path (e.g. `$env:USERPROFILE\Documents\WindowsPowerShell\Modules\`)
+
+## Usage
+
+```posh
+# Import the module
+    Import-Module PSDockerHub 
+
+#Alternatively
+    Import-Module \\Path\To\PSDockerHub
 
 # Get commands in the module
     Get-Command -Module PSDockerHub
@@ -47,7 +59,6 @@ Suggestions, pull requests and other contributions would be more than welcome!
     Get-Help Find-DockerImage -Full
     Get-Help about_PSDockerHub
 ```
-
 
 # Functions
 
