@@ -89,7 +89,7 @@ function Invoke-DockerHubWebRequest
                         $ret = $Response | ConvertFrom-Json
                         $ResultsCount += $ret.results.Count
 
-                        'Page size: {0}. Total tems available: {1}. Total items received : {2}. Items received in this batch: {3}. ' -f (
+                        'Page size: {0}. Total items available: {1}. Total items received : {2}. Items received in this batch: {3}. ' -f (
                             ($false, $PageSize)[[bool]$UsePageSize],
                             $ret.count,
                             $ResultsCount,
