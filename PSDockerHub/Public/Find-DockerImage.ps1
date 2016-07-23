@@ -52,6 +52,8 @@
 #>
 function Find-DockerImage
 {
+    # Default value is for ParameterSet where parameter is not mandatory
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidDefaultValueForMandatoryParameter', 'SearchTerm')]
     [CmdletBinding(DefaultParameterSetName = 'Wildcard')]
     Param
     (
