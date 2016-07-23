@@ -15,11 +15,11 @@
 
 .Parameter Automated
     Search only for automated builds
-    Note, that this parameter is ignored, when SearchTerm is omitted (wildcard query)
+    Note, that this parameter is not available, when SearchTerm is omitted (wildcard query)
 
 .Parameter Official
     Search only for official images
-    Note, that this parameter is ignored, when SearchTerm is omitted (wildcard query)
+    Note, that this parameter is not available, when SearchTerm is omitted (wildcard query)
 
 .Parameter MaxResults
     Maximum number of results to return. Default is 25.
@@ -52,32 +52,29 @@
 #>
 function Find-DockerImage
 {
-    [CmdletBinding(DefaultParameterSetName = 'Base')]
+    [CmdletBinding(DefaultParameterSetName = 'Wildcard')]
     Param
     (
-        [Parameter(ValueFromPipeline = $true, ParameterSetName = 'Base')]
+        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'SearchTerm_Automated')]
+        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'SearchTerm_Official')]
+        [Parameter(Position = 0, ParameterSetName = 'Wildcard')]
         [ValidateNotNullOrEmpty()]
         [string[]]$SearchTerm = '*',
 
-        [Parameter(ParameterSetName = 'Base')]
-        [Parameter(ParameterSetName = 'SortBy')]
+        [Parameter(Position = 1, ParameterSetName = 'SearchTerm_Automated')]
+        [Parameter(Position = 1, ParameterSetName = 'SearchTerm_Official')]
+        [Parameter(Position = 1, ParameterSetName = 'Wildcard')]
         [ValidateSet('Downloads', 'Stars')]
         [string]$SortBy,
 
-        [Parameter(ParameterSetName = 'Base')]
-        [Parameter(ParameterSetName = 'Automated')]
+        [Parameter(Position = 2, ParameterSetName = 'SearchTerm_Automated')]
         [switch]$Automated,
 
-        [Parameter(ParameterSetName = 'Base')]
-        [Parameter(ParameterSetName = 'Official')]
+        [Parameter(Position = 2, ParameterSetName = 'SearchTerm_Official')]
         [switch]$Official,
-
-        [Parameter(ParameterSetName = 'Base')]
-        [Parameter(ParameterSetName = 'SortBy')]
-        [Parameter(ParameterSetName = 'Automated')]
-        [Parameter(ParameterSetName = 'Official')]
+        
+        [Parameter(Position = 3)]
         [int]$MaxResults = 25
-
     )
 
     Begin
