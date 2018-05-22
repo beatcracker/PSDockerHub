@@ -8,18 +8,14 @@ environment:
     secure: NbIQ9vEo/6ZsKp4lA2FcYQYQ6BeNAkAtYbDLxQ8QJi2hIbaRVDf3DOrw5M9IMcyQ
 
 # Skip on updates to the readme.
-# We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
+# We can force this by adding [skip ci] or [ci skip] anywhere in commit message
 skip_commits:
   message: /^(?=.*update)(?=.*readme).*$/
 
-install:
-  - ps: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Confirm:$false -Force -ErrorAction Stop
-  - ps: Install-Module -Name Pester -Force
-  - ps: Install-Module -Name PSScriptAnalyzer -Force
+before_build:
+  - cmd: gitversion /l console /output buildserver
 
 build: off
-
-version: '1.0.{build}'
 
 #Kick off the CI/CD pipeline
 test_script:
