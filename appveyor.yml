@@ -16,6 +16,7 @@ build: off
 
 # Get latest GitVersion
 install:
+  - choco uninstall gitversion.portable -y
   - choco install gitversion.portable -pre -y
 
 # Generate version
