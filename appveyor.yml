@@ -20,7 +20,7 @@ install:
 
 # Generate version
 before_test:
-  - ps: "$env:ChocolateyInstall\bin\GitVersion.exe" /l console /output buildserver
+  - ps: '& (Join-Path $env:ChocolateyInstall "bin\GitVersion.exe") /l console /output buildserver'
 
 #Kick off the CI/CD pipeline
 test_script:
