@@ -74,7 +74,7 @@ function Find-DockerImage
 
         [Parameter(Position = 2, ParameterSetName = 'SearchTerm_Official')]
         [switch]$Official,
-        
+
         [Parameter(Position = 3)]
         [int]$MaxResults = 25
     )
@@ -112,7 +112,7 @@ function Find-DockerImage
             ) -join '&'
         }
 
-        Invoke-DockerHubWebRequest -Request $Request -Paginated -MaxResults $MaxResults |
+        Invoke-DockerHubWebRequest -Request $Request -Paginated -UsePageSize -MaxResults $MaxResults |
             Select-Object -Property (
                 @{n = 'Name' ; e = {$_.repo_name}},
                 @{n = 'Description' ; e = {$_.short_description}},
