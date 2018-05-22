@@ -56,11 +56,11 @@ function Invoke-DockerHubWebRequest
     Process
     {
         foreach ($item in $Request) {
-            $Uri = ($DockerHub, $ApiVersion ,$item) -join '/'
+           [uri]$Uri = ($DockerHub, $ApiVersion ,$item) -join '/'
 
             if ($Paginated) {
                 if ($UsePageSize) {
-                    if ([uri]$Uri.Query) {
+                    if ($Uri.Query) {
                         $Joiner = '&'
                     } else {
                         $Joiner = '?'
@@ -70,7 +70,7 @@ function Invoke-DockerHubWebRequest
                         $PageSize = $MaxResults
                     }
 
-                    $Uri = ($Uri, ($PageSizeParam -f $PageSize)) -join $Joiner
+                    [uri]$Uri = ($Uri, ($PageSizeParam -f $PageSize)) -join $Joiner
                 }
 
                 Write-Verbose 'Making paginated request to DockerHub API'
@@ -83,10 +83,8 @@ function Invoke-DockerHubWebRequest
                         throw $_
                     }
 
-                    $Uri = $null
-
                     if ($Response) {
-                        $ret = $Response | ConvertFrom-Json
+                        $ret = $Response | ConvertFrom-Json -ErrorAction Stop
                         $ResultsCount += $ret.results.Count
 
                         'Page size: {0}. Total items available: {1}. Total items received : {2}. Items received in this batch: {3}. ' -f (
@@ -97,13 +95,22 @@ function Invoke-DockerHubWebRequest
                         ) |  Write-Verbose
 
                         if ($ResultsCount -gt $MaxResults) {
+                            $Uri = $null
                             $SkipCount = $ResultsCount - $MaxResults
                             Write-Verbose "Results limit reached, skipping last: $SkipCount"
                             $ret.results | Select-Object -SkipLast $SkipCount
-                        } elseif ($ResultsCount -eq $MaxResults) {
-                            $ret.results
                         } else {
-                            $Uri = $ret.next
+                            if ($NextUri = [uri]$ret.next) {
+                                if ($NextUri.Host -ne $Uri.Host) {
+                                    $UriBuilder = New-Object -TypeName System.UriBuilder -ArgumentList $NextUri
+                                    $UriBuilder.Host = $Uri.Host
+                                    $Uri = $UriBuilder.ToString()
+                                    Write-Verbose "Fixing url for next result:  $NextUri -> $Uri"
+                                }
+                            } else {
+                                $Uri = $null
+                            }
+
                             $ret.results
                         }
                     }
@@ -117,7 +124,7 @@ function Invoke-DockerHubWebRequest
                 }
 
                 if ($Response) {
-                    $Response | ConvertFrom-Json
+                    $Response | ConvertFrom-Json -ErrorAction Stop
                 }
             }
         }
