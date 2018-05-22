@@ -1,4 +1,4 @@
-$FunctionsToExport = @()
+$script:FunctionsToExport = @()
 $Folders = 'Public', 'Private'
 
 foreach ($Scope in $Folders) {
@@ -12,7 +12,7 @@ foreach ($Scope in $Folders) {
 
             switch ($Scope) {
                 'Public' {
-                    $FunctionsToExport += $File.BaseName
+                    $script:FunctionsToExport += $File.BaseName
                 }
             }
         } catch {
@@ -21,4 +21,4 @@ foreach ($Scope in $Folders) {
     }
 }
 
-Export-ModuleMember -Function $FunctionsToExport
+Export-ModuleMember -Function $script:FunctionsToExport
