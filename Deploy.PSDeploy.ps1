@@ -51,7 +51,7 @@ if(
             FromSource $ENV:BHProjectName
             To AppVeyor
             WithOptions @{
-                Version = $env:APPVEYOR_BUILD_VERSION
+                Version = $env:GitVersion_NuGetVersion
             }
         }
     }
