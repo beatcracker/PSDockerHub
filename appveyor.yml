@@ -16,12 +16,11 @@ build: off
 
 # Get latest GitVersion
 install:
-  - choco uninstall gitversion.portable -y
   - choco install gitversion.portable -pre -y
 
 # Generate version
 before_test:
-  - cmd: gitversion /l console /output buildserver
+  - ps: & (Join-Path $env:ChocolateyInstall 'bin\GitVersion.exe') /l console /output buildserver
 
 #Kick off the CI/CD pipeline
 test_script:
