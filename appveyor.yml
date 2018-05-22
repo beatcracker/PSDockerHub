@@ -14,6 +14,10 @@ skip_commits:
 
 build: off
 
+# Get latest GitVersion
+install:
+  - choco install gitversion.portable -pre -y
+
 # Generate version
 before_test:
   - cmd: gitversion /l console /output buildserver
