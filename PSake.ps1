@@ -58,12 +58,12 @@ Task Test -Depends Init  {
 
 Task Build -Depends Test {
     $lines
-    
+
     # Load the module, read the exported functions, update the psd1 FunctionsToExport
     Set-ModuleFunctions
 
     # Set the module version
-    Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $env:APPVEYOR_BUILD_VERSION
+    Update-Metadata -Path $env:BHPSModuleManifest -PropertyName ModuleVersion -Value $env:GitVersion_NuGetVersion
 }
 
 Task Deploy -Depends Build {
