@@ -12,10 +12,11 @@ environment:
 skip_commits:
   message: /^(?=.*update)(?=.*readme).*$/
 
-before_build:
-  - cmd: gitversion /l console /output buildserver
-
 build: off
+
+# Generate version
+before_test:
+  - cmd: gitversion /l console /output buildserver
 
 #Kick off the CI/CD pipeline
 test_script:
