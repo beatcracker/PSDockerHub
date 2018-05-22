@@ -24,7 +24,7 @@ Author = 'beatcracker'
 CompanyName = 'NA'
 
 # Copyright statement for this module
-Copyright = '(c) 2016 beatcracker. All rights reserved.'
+Copyright = '(c) 2018 beatcracker. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PSDockerHub is a PowerShell module written to access the official Docker Hub/Registry. Its main goal is to to make sure that you have never had to use the public part of Docker Hub site in the browser.'
@@ -104,7 +104,7 @@ PrivateData = @{
         IconUri = 'https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png'
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'DockerHub changed API, this update restores full module functionality.'
 
     } # End of PSData hashtable
 
