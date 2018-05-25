@@ -1,6 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/ga9uuklbvdexw8re?svg=true)](https://ci.appveyor.com/project/beatcracker/psdockerhub)
-
-[![PSDockerHub](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png)](https://www.powershellgallery.com/packages/PSDockerHub)
+|AppVeyor|PowerShell Gallery|
+|:-:|:-:|
+|[![Build status](https://ci.appveyor.com/api/projects/status/ga9uuklbvdexw8re?svg=true)](https://ci.appveyor.com/project/beatcracker/psdockerhub)|[![PSDockerHub](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png)](https://www.powershellgallery.com/packages/PSDockerHub)|
 
 # `PSDockerHub`
 
