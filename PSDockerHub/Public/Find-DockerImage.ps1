@@ -52,20 +52,13 @@
 #>
 function Find-DockerImage
 {
-    # Default value is for ParameterSet where parameter is not mandatory
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidDefaultValueForMandatoryParameter', 'SearchTerm')]
-    [CmdletBinding(DefaultParameterSetName = 'Wildcard')]
+    [CmdletBinding(DefaultParameterSetName = '__AllParameterSets')]
     Param
     (
-        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'SearchTerm_Automated')]
-        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'SearchTerm_Official')]
-        [Parameter(Position = 0, ParameterSetName = 'Wildcard')]
-        [ValidateNotNullOrEmpty()]
-        [string[]]$SearchTerm = '*',
+        [Parameter(Position = 0, ValueFromPipeline = $true)]
+        [string[]]$SearchTerm,
 
-        [Parameter(Position = 1, ParameterSetName = 'SearchTerm_Automated')]
-        [Parameter(Position = 1, ParameterSetName = 'SearchTerm_Official')]
-        [Parameter(Position = 1, ParameterSetName = 'Wildcard')]
+        [Parameter(Position = 1)]
         [ValidateSet('Downloads', 'Stars')]
         [string]$SortBy,
 
@@ -92,6 +85,8 @@ function Find-DockerImage
 
     Process
     {
+        $SearchTerm = $SearchTerm -replace '^$', '*'
+
         $QueryParams = @()
 
         if ($Automated) {
