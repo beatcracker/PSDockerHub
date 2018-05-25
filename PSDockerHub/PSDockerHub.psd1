@@ -104,7 +104,7 @@ PrivateData = @{
         IconUri = 'https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/PSDockerHub.png'
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'DockerHub changed API, this update restores full module functionality.'
+        ReleaseNotes = "Fixed pipeline support in Find-DockerImage, added bunch of tests so this wouldn't happen again."
 
     } # End of PSData hashtable
 
