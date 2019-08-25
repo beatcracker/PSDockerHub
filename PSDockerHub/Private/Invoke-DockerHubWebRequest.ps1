@@ -100,7 +100,7 @@ function Invoke-DockerHubWebRequest
                             Write-Verbose "Results limit reached, skipping last: $SkipCount"
                             $ret.results | Select-Object -SkipLast $SkipCount
                         } else {
-                            if ($NextUri = [uri]$ret.next) {
+                            if ($NextUri -eq [uri]$ret.next) {
                                 if ($NextUri.Host -ne $Uri.Host) {
                                     $UriBuilder = New-Object -TypeName System.UriBuilder -ArgumentList $NextUri
                                     $UriBuilder.Host = $Uri.Host
