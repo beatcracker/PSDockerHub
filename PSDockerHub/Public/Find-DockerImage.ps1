@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
     Search for docker images on Docker Hub
 

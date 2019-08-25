@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
     Get detailed information for a Docker image.
 

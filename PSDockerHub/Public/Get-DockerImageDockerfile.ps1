@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
     Get Docker image Dockerfile.
 
