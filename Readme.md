@@ -25,12 +25,12 @@ Suggestions, pull requests and other contributions would be more than welcome!
 
 * PowerShell 3.0 or higher
 
-
 # Instructions
 
 ## Installation
 
 ### From [PowerShell Gallery](https://www.powershellgallery.com/)
+
 If you have PowerShell 5, or the PowerShellGet module ([MSI Installer for PowerShell 3 and 4](http://go.microsoft.com/fwlink/?LinkID=746217&clcid=0x409)):
 
 ```posh
@@ -47,7 +47,7 @@ Install-Module PSDockerHub
 
 ```posh
 # Import the module
-    Import-Module PSDockerHub 
+    Import-Module PSDockerHub
 
 #Alternatively
     Import-Module \\Path\To\PSDockerHub
@@ -62,23 +62,25 @@ Install-Module PSDockerHub
 
 # Functions
 
-- [Find-DockerImage](#find-dockerimage)
-- [Get-DockerImageDetail](#get-dockerimagedetail)
-- [Get-DockerImageTag](#get-dockerimagetag)
-- [Get-DockerImageBuildDetail](#get-dockerimagebuilddetail)
-- [Get-DockerImageBuildHistory](#get-dockerimagebuildhistory)
-- [Get-DockerImageDockerfile](#get-dockerimagedockerfile)
+* [Find-DockerImage](#find-dockerimage)
+* [Get-DockerImageDetail](#get-dockerimagedetail)
+* [Get-DockerImageTag](#get-dockerimagetag)
+* [Get-DockerImageBuildDetail](#get-dockerimagebuilddetail)
+* [Get-DockerImageBuildHistory](#get-dockerimagebuildhistory)
+* [Get-DockerImageDockerfile](#get-dockerimagedockerfile)
 
 ## Find-DockerImage
+
 Search for docker images on Docker Hub via Docker Hub API. You can filter search by `Name/Description`, `Stars`, `Downloads`, `Official` images and `Automated` builds.
 
 ### Example
 
-#### Search for [MariaDB](https://mariadb.org) docker images, sort by downloads. Then find images built on [Alpine Linux](https://www.alpinelinux.org) using PowerShell filtering.
+#### Search for [MariaDB](https://mariadb.org) docker images, sort by downloads. Then find images built on [Alpine Linux](https://www.alpinelinux.org) using PowerShell filtering
 
 ```posh
 'mariadb' | Find-DockerImage -SortBy Downloads -MaxResults 100 | ? Name -Like '*alpine*'
 ```
+
 ```no-highlight
 Name                 Description                             Stars Downloads Official Automated
 ----                 -----------                             ----- --------- -------- ---------
@@ -86,8 +88,9 @@ wodby/mariadb-alpine mariadb-alpine                              1      6533    
 k0st/alpine-mariadb  MariaDB/MySQL on Alpine (size: ~154 MB)     3      2939    False      True
 dydx/alpine-mariadb                                              1       671    False      True
 timhaak/docker-maria docker mariadb using alpine                 2       357    False      True
-db-alpine                                                                                      
+db-alpine
 ```
+
 Or you can pipe output to `Out-GridView` and apply filters there:
 
 ```powershell
@@ -97,11 +100,13 @@ Or you can pipe output to `Out-GridView` and apply filters there:
 ![Out-GridView](https://raw.githubusercontent.com/beatcracker/PSDockerHub/master/Media/Out-GridView.png)
 
 #### Get most downloaded docker images:
+
 ```posh
 Find-DockerImage -SortBy Downloads
 ```
 
 #### Get most starred docker images:
+
 ```posh
 Find-DockerImage -SortBy Stars
 ```
@@ -115,6 +120,7 @@ Get detailed information for a Docker image, including full description in markd
 ```posh
 'zzrot/whale-awkward' | Get-DockerImageDetail
 ```
+
 ```no-highlight
 Name            : whale-awkward
 Owner           : zzrot
@@ -129,22 +135,22 @@ Automated       : False
 FullDescription : # Whale Awkward
                   [![Docker Pulls](https://img.shields.io/docker/pulls/zzrot/whale-awkward.svg)](https://hub.d
                   ocker.com/r/zzrot/whale-awkward/)
-                  
-                  
+
+
                   Welcome to Whale Awkward! This is a project created by the team at [ZZROT](https://zzrot.com
-                  ). We decided it would be fun to build a simple image with a message, and then see how high 
+                  ). We decided it would be fun to build a simple image with a message, and then see how high
                   we could get it on [Docker-Hub](https://hub.docker.com/).
-                  
+
                   We are currently [ranked 8th](https://hub.docker.com/search/?isAutomated=0&isOfficial=0&page
                   =1&pullCount=1&q=%22%22&starCount=0) amongst all time pulls! [Check it out](https://hub.dock
                   er.com/r/zzrot/whale-awkward/) for yourself.
-                  
+
                   Whale Awkward can be found on [Github](https://github.com/ZZROTDesign/whale-awkward)
-                  
+
                   Whale Awkward was developed by:
                   - [Sean Kilgarriff](https://seankilgarriff.com)
                   - [Killian Brackey](https://killianbrackey.com)
-                  
+
                   Through [ZZROT](https://zzrot.com) - [Github](https://github.com/ZZROTDesign)
 ```
 
@@ -157,19 +163,19 @@ Get Docker image tags for image.
 ```posh
 'alpine' | Get-DockerImageTag
 ```
+
 ```no-highlight
-Name   Size Updated             Id     
-----   ---- -------             --     
-edge   2 MB 23.06.2016 22:56:45 170603 
-latest 2 MB 23.06.2016 22:56:28 170608 
+Name   Size Updated             Id
+----   ---- -------             --
+edge   2 MB 23.06.2016 22:56:45 170603
+latest 2 MB 23.06.2016 22:56:28 170608
 3.4    2 MB 23.06.2016 22:56:22 3272293
 3.3    2 MB 23.06.2016 22:56:10 1622498
-3.2    2 MB 23.06.2016 22:55:56 170604 
-3.1    2 MB 23.06.2016 22:55:39 170605 
-2.7    2 MB 02.02.2016 22:50:30 170606 
-2.6    2 MB 02.02.2016 22:50:22 170607 
+3.2    2 MB 23.06.2016 22:55:56 170604
+3.1    2 MB 23.06.2016 22:55:39 170605
+2.7    2 MB 02.02.2016 22:50:30 170606
+2.6    2 MB 02.02.2016 22:50:22 170607
 ```
-
 
 ## Get-DockerImageBuildDetail
 
@@ -180,6 +186,7 @@ Get Docker image build details. Build details are available only for some [autom
 ```posh
 'jwilder/nginx-proxy' | Get-DockerImageBuildDetail
 ```
+
 ```no-highlight
 Name     : jwilder/nginx-proxy
 Provider : github
@@ -199,6 +206,7 @@ latest master Branch /          13991
 ```
 
 ## Get-DockerImageBuildHistory
+
 Get Docker image build history. Build history is available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Example
@@ -206,6 +214,7 @@ Get Docker image build history. Build history is available only for some [automa
 ```posh
 'jwilder/nginx-proxy' | Get-DockerImageBuildHistory
 ```
+
 ```no-highlight
 Tag       : latest
 Status    : Success
@@ -229,10 +238,11 @@ Id        : 5574427
 BuildCode : bcppfp2jtnt4s7ke2dhztrb
 Cause     : TRIGGERED_VIA_API
 Created   : 13.06.2016 6:45:57
-Updated   : 13.06.2016 6:47:43   
+Updated   : 13.06.2016 6:47:43
 ```
 
 ## Get-DockerImageDockerfile
+
 Get Docker image [Dockerfile](https://docs.docker.com/engine/reference/builder/). Dockerfiles are available only for some [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Example
@@ -240,6 +250,7 @@ Get Docker image [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 ```posh
 'jwilder/nginx-proxy' | Get-DockerImageDockerfile
 ```
+
 ```no-highlight
 FROM nginx:1.9.15
 MAINTAINER Jason Wilder mail@jasonwilder.com
@@ -274,5 +285,5 @@ ENV DOCKER_HOST unix:///tmp/docker.sock
 VOLUME ["/etc/nginx/certs"]
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["forego", "start", "-r"] 
+CMD ["forego", "start", "-r"]
 ```
