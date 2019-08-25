@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
     Helper function to query Docker Hub API.
 
@@ -73,7 +73,7 @@ function Invoke-DockerHubWebRequest
                     [uri]$Uri = ($Uri, ($PageSizeParam -f $PageSize)) -join $Joiner
                 }
 
-                Write-Verbose 'Making paginated request to DockerHub API'
+                Write-Verbose "Making paginated request to DockerHub API: $Uri"
                 $ResultsCount = 0
 
                 while ($Uri) {
@@ -84,7 +84,12 @@ function Invoke-DockerHubWebRequest
                     }
 
                     if ($Response) {
-                        $ret = $Response | ConvertFrom-Json -ErrorAction Stop
+                        try {
+                            $ret = $Response | ConvertFrom-Json -ErrorAction Stop
+                        } catch{
+                            throw $_
+                        }
+
                         $ResultsCount += $ret.results.Count
 
                         'Page size: {0}. Total items available: {1}. Total items received : {2}. Items received in this batch: {3}. ' -f (
@@ -94,29 +99,34 @@ function Invoke-DockerHubWebRequest
                             $ret.results.Count
                         ) |  Write-Verbose
 
+                        'Next result uri: {0}' -f $ret.next | Write-Verbose
+
                         if ($ResultsCount -gt $MaxResults) {
                             $Uri = $null
                             $SkipCount = $ResultsCount - $MaxResults
                             Write-Verbose "Results limit reached, skipping last: $SkipCount"
                             $ret.results | Select-Object -SkipLast $SkipCount
                         } else {
-                            if ($NextUri -eq [uri]$ret.next) {
-                                if ($NextUri.Host -ne $Uri.Host) {
-                                    $UriBuilder = New-Object -TypeName System.UriBuilder -ArgumentList $NextUri
-                                    $UriBuilder.Host = $Uri.Host
-                                    $Uri = $UriBuilder.ToString()
-                                    Write-Verbose "Fixing url for next result:  $NextUri -> $Uri"
+                            $NextUri = $null
+
+                            if (-not [System.String]::IsNullOrEmpty($ret.next)) {
+                                if([uri]::TryCreate($ret.next, [System.UriKind]::Absolute, [ref]$NextUri)) {
+                                    if ($NextUri.Host -ne $Uri.Host) {
+                                        $UriBuilder = New-Object -TypeName System.UriBuilder -ArgumentList $NextUri
+                                        $UriBuilder.Host = $Uri.Host
+                                        $NextUri = $UriBuilder.ToString()
+                                        Write-Verbose "Fixing url for next result:  $NextUri -> $Uri"
+                                    }
                                 }
-                            } else {
-                                $Uri = $null
                             }
 
+                            $Uri = $NextUri
                             $ret.results
                         }
                     }
                 }
             } else {
-                Write-Verbose "Making singular request to DockerHub API"
+                Write-Verbose "Making singular request to DockerHub API: $Uri"
                 try {
                     $Response = (Invoke-WebRequest -Uri $Uri -UseBasicParsing -ErrorAction Stop).Content
                 } catch {
