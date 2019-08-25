@@ -24,7 +24,7 @@ Author = 'beatcracker'
 CompanyName = 'NA'
 
 # Copyright statement for this module
-Copyright = '(c) 2018 beatcracker. All rights reserved.'
+Copyright = '(c) 2019 beatcracker. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PSDockerHub is a PowerShell module written to access the official Docker Hub/Registry. Its main goal is to to make sure that you have never had to use the public part of Docker Hub site in the browser.'
@@ -66,16 +66,23 @@ FormatsToProcess =  @('.\TypeData\PSDockerHub.Format.ps1xml')
 # NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = '*'
+FunctionsToExport = @(
+    'Find-DockerImage'
+    'Get-DockerImageBuildDetail'
+    'Get-DockerImageBuildHistory'
+    'Get-DockerImageDetail'
+    'Get-DockerImageDockerfile'
+    'Get-DockerImageTag'
+)
 
 # Cmdlets to export from this module
-# CmdletsToExport = '*'
+ CmdletsToExport = @()
 
 # Variables to export from this module
-# VariablesToExport = '*'
+VariablesToExport = @()
 
 # Aliases to export from this module
-# AliasesToExport = '*'
+AliasesToExport = @()
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
