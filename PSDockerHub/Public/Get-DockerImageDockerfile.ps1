@@ -3,7 +3,7 @@
     Get Docker image Dockerfile.
 
 .Description
-    Get Docker image Dockerfile.    
+    Get Docker image Dockerfile.
     Build history is available only for some automated builds.
 
 .Parameter Name

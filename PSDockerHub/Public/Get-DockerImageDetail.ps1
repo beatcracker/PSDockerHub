@@ -45,7 +45,7 @@ function Get-DockerImageDetail
                 @{n = 'Official' ; e = {if ($_.namespace -eq 'library') {$true} else {$false}}},
                 @{n = 'Automated' ; e = {$_.is_automated}},
                 @{n = 'FullDescription' ; e = {$_.full_description}}
-            )            
+            )
         }
     }
 }
