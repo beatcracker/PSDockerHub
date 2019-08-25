@@ -16,7 +16,7 @@ build: off
 
 # Get latest GitVersion
 install:
-  - choco install gitversion.portable -pre -y
+  - choco install gitversion.portable --version 4.0.0 -y
 
 # Generate version
 before_test:
