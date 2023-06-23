@@ -6,7 +6,7 @@
 
 PSDockerHub is a PowerShell module written to access the official [Docker Hub/Registry](https://hub.docker.com). Its main goal is to to make sure that you have never had to use the public part of Docker Hub site in the browser.
 
-Most of the APIs used were sniffed using the Chrome DevTools, because there is [significant fragmentation](https://github.com/ngageoint/seed/blob/master/detail.adoc#discovery) of APIs between the various Docker offerings.
+Most of the APIs used were sniffed using the Chrome DevTools, because there is [significant fragmentation](https://github.com/ngageoint/seed/blob/7ae36873dab9ea46369826a8debb666ef454aa26/detail.adoc#discovery) of APIs between the various Docker offerings.
 
 You can find API documentation here:
 
